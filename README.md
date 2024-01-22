@@ -1,14 +1,40 @@
-### What is this repository for? ###
+# Simple Blog System
 
-This is the python repo for university service.
-There are 2 major components to this:
+This is a simple blog system implemented in Flask, featuring user authentication and CRUD operations for blog posts.
 
-* Flask App: REST APIs
-* Worker: Celery Workers for Async Tasks
+## Database Schema
+
+### User Table
+
+The `User` table stores information about registered users.
+
+| Column      | Type         | Constraints              |
+|-------------|--------------|--------------------------|
+| id          | Integer      | Primary Key              |
+| username    | String(80)   | Unique, Not Null         |
+| password    | String(255)  | Not Null                 |
+| created_at  | DateTime     | Default: current time    |
+| modified_at | DateTime     | Default: current time    (on update) |
+
+### BlogPost Table
+
+The `BlogPost` table stores information about individual blog posts.
+
+| Column      | Type         | Constraints              |
+|-------------|--------------|--------------------------|
+| id          | Integer      | Primary Key              |
+| title       | String(255)  | Not Null                 |
+| content     | Text         | Not Null                 |
+| author_id   | Integer      | Foreign Key (User.id)    |
+| created_at  | DateTime     | Default: current time    |
+| modified_at | DateTime     | Default: current time    (on update) |
+
+The `author_id` column in the `BlogPost` table references the `id` column in the `User` table, creating a relationship between users and their blog posts.
+
 
 ### How do I get set up? ###
 
-#### Local
+#### Local ####
 
 Create & Activate a Virtual Environment
 

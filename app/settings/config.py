@@ -12,7 +12,7 @@ class Config(object):
     """Parent configuration class."""
     DEBUG = False
     NAME = "development"  # change it to APP_ENV
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///blogs.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///logisticsnow.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECURITY_PASSWORD_HASH = 'bcrypt'
     SECURITY_PASSWORD_SALT = 'logisticsnow1234567'
@@ -36,8 +36,7 @@ class UnitTestingConfig(Config):
     TESTING = True
     DEBUG = True
     NAME = "unit_testing"
-    MONGO_DB_URL = "mongodb://localhost/university-service-test"
-    REDIS_URL = "redis://localhost:6379"
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///logisticsnow.db'
 
 
 class TestingConfig(Config):
