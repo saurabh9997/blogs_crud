@@ -1,11 +1,9 @@
 import pytest
-# from flask_bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 
 from app.factories.application import create_app, db
 
-
-# Fixture to set up the Flask app and database for testing
 @pytest.fixture
 def app():
     app = create_app()
@@ -13,7 +11,7 @@ def app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'  # Use in-memory SQLite for testing
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     jwt = JWTManager(app)
-    # Bcrypt(app)
+    bcrypt = Bcrypt(app)
 
     with app.app_context():
         db.create_all()
