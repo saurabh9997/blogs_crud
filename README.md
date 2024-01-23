@@ -25,7 +25,7 @@ The `BlogPost` table stores information about individual blog posts.
 | id          | Integer      | Primary Key              |
 | title       | String(255)  | Not Null                 |
 | content     | Text         | Not Null                 |
-| author_id   | Integer      | Foreign Key (User.id)    |
+| author      | String       | Not Null                 |
 | created_at  | DateTime     | Default: current time    |
 | modified_at | DateTime     | Default: current time    (on update) |
 
